@@ -11,10 +11,15 @@
 <div id="results"></div>
 <div id="fb-root"></div>
 <script type="text/javascript">
+
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6',
+    });
+
     var appId = '1461621213908119';
     var roleArn = 'arn:aws:iam::322653911670:role/role-endleg-Oauth-FB';
-    var bucketName = 's3-zu697';
-    AWS.config.region = 'eu-west-1';
+    var bucketName = 'zu697-cognito';
+    AWS.config.region = 'eu-central-1';
 
     var fbUserId;
     var bucket = new AWS.S3({
