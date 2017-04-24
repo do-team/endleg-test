@@ -1,0 +1,73 @@
+<html>
+<head>
+
+
+</head>
+
+
+
+<body>
+
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
+
+<script>
+    // Initialize the Amazon Cognito credentials provider
+    AWS.config.region = 'eu-central-1'; // Region
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6',
+    });
+</script>
+
+<script type="text/javascript">
+
+var apigClient = apigClientFactory.newClient({
+    //accessKey: 'ACCESS_KEY',
+    //secretKey: 'SECRET_KEY',
+    sessionToken: 'SESSION_TOKEN', //OPTIONAL: If you are using temporary credentials you must include the session token
+    region: 'eu-west-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
+});
+
+var params = {
+//This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
+param0: 'something0',
+param1: 'nothing1'
+};
+var body = {
+//This is where you define the body of the request
+};
+var additionalParams = {
+//If there are any unmodeled query parameters or headers that need to be sent with the request you can add them here
+headers: {
+param0: 'additonallysomething0',
+param1: 'additionalnothing1'
+},
+queryParams: {
+param0: 'querryadditional0',
+param1: 'querryadditional1'
+}
+};
+
+apigClient.testGet(params, body, additionalParams)
+.then(function(result){
+//This is where you would put a success callback
+}).catch( function(result){
+//This is where you would put an error callback
+});
+</script>
+
+
+
+</body>
+
+
+</html>
