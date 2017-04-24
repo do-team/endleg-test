@@ -12,8 +12,11 @@
 <div id="fb-root"></div>
 <script type="text/javascript">
 
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    AWS.config.credentials = new AWS.WebIdentityCredentials({
+        RoleArn: 'arn:aws:iam::322653911670:role/role-endleg-Oauth-FB',
         IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6',
+        ProviderId: 'graph.facebook.com|www.amazon.com', // this is null for Google
+        WebIdentityToken: ACCESS_TOKEN
     });
 
     var appId = '1461621213908119';
