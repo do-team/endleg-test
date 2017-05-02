@@ -22,12 +22,20 @@
             if (response.status === 'connected') {
                 console.log('Logged in.'); // This works!
 
+                // AWS temp credentials
+
+                AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                    IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6',
+                    Logins: { // optional tokens, used for authenticated login
+                        'graph.facebook.com': response.authResponse.accessToken
+                    }
+                });
+
                 // TEST API CALL!
                 var apigClient = apigClientFactory.newClient({
                     //accessKey: 'ACCESS_KEY',
                     //secretKey: 'SECRET_KEY',
-                    sessionToken: response.authResponse.accessToken;
-                    //sessionToken: 'SESSION_TOKEN', //OPTIONAL: If you are using temporary credentials you must include the session token
+                    sessionToken: AWS.config.credentials.sessionToken, //OPTIONAL: If you are using temporary credentials you must include the session token
                     region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
                 });
 
