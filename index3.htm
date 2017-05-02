@@ -25,7 +25,7 @@
                 var apigClient = apigClientFactory.newClient({
                     //accessKey: 'ACCESS_KEY',
                     //secretKey: 'SECRET_KEY',
-                    sessionToken: FB.response.authResponse.accessToken;
+                    sessionToken: response.authResponse.accessToken;
                     //sessionToken: 'SESSION_TOKEN', //OPTIONAL: If you are using temporary credentials you must include the session token
                     region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
                 });
