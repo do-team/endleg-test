@@ -16,7 +16,7 @@
         RoleArn: 'arn:aws:iam::322653911670:role/role-endleg-Oauth-FB',
         IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6',
         ProviderId: 'graph.facebook.com|www.amazon.com', // this is null for Google
-        WebIdentityToken: response.authResponse.accessToken
+        //WebIdentityToken: ACCESS_TOKEN
     });
 
     var appId = '1461621213908119';
@@ -95,6 +95,7 @@
             });
             fbUserId = response.authResponse.userID;
             button.style.display = 'block';
+            console.log(WebIdentityToken + ' FB TOKEN');
         })
     };
 
