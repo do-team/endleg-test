@@ -19,6 +19,7 @@
 <body>
 
 <script>
+
     window.fbAsyncInit = function() {
         FB.init({
             appId      : '1461621213908119',
@@ -41,6 +42,8 @@
                 });
 
                 // TEST API CALL!
+                var apigClient = apigClientFactory.newClient();
+
                 var apigClient = apigClientFactory.newClient({
                     //accessKey: 'ACCESS_KEY',
                     //secretKey: 'SECRET_KEY',
