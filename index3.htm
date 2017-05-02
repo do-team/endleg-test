@@ -17,6 +17,7 @@
             version    : 'v2.9'
         });
         FB.AppEvents.logPageView();
+        console.log(JSON.stringify(FB));
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 console.log('Logged in.'); // This works!
