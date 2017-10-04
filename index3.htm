@@ -42,7 +42,7 @@
                 });
 
                 // TEST API CALL!
-                var apigClient = apigClientFactory.newClient();
+                //var apigClient = apigClientFactory.newClient();
 
                 var apigClient = apigClientFactory.newClient({
                     //accessKey: 'ACCESS_KEY',
@@ -52,8 +52,15 @@
                 });
 
                 var params = {
-                //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
+                    //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
                     "ContentType" : "Application/JSON"
+                };
+
+                var additionalParams = {
+                    headers: {
+                        'Access-Control-Allow-Origin': 'https://do-team.github.io',
+                        'Access-Control-Request-Method': 'GET'
+                    }
                 };
                 var body = {
                 //This is where you define the body of the request
