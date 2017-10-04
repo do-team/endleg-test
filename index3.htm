@@ -53,18 +53,16 @@
 
                 var params = {
                     //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
-                    "ContentType" : "Application/JSON"
-                };
-
-                var additionalParams = {
                     headers: {
                         'Access-Control-Allow-Origin': 'https://do-team.github.io',
-                        'Access-Control-Request-Method': 'GET'
+                        //'Access-Control-Request-Method': 'GET',
+                        'ContentType' : 'Application/JSON'
                     }
                 };
+
                 var body = {
                 //This is where you define the body of the request
-                    "message" : "hello world!"
+                    'message' : 'hello world!'
                 };
 
 
