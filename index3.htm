@@ -51,6 +51,8 @@
                     region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
                 });
 
+                console.log(AWS.config.credentials.accessKeyId);
+                console.log(AWS.config.credentials.secretAccessKey);
                 console.log(AWS.config.credentials.sessionToken);
 
                 var params = {
