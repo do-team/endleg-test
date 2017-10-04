@@ -55,26 +55,15 @@
                 //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
                     param0: 'something0',
                     param1: 'nothing1',
-                    'Access-Control-Allow-Origin': 'https://do-team.github.io'
+                    Origin: 'https://do-team.github.io'
                 };
                 var body = {
                 //This is where you define the body of the request
-                };
-                var additionalParams = {
-                //If there are any unmodeled query parameters or headers that need to be sent with the request you can add them here
-                    headers: {
-                        param0: 'additonallysomething0',
-                        param1: 'additionalnothing1',
-                        'Access-Control-Allow-Origin': 'https://do-team.github.io'
-                    },
-                    queryParams: {
-                        param0: 'querryadditional0',
-                        param1: 'querryadditional1',
-                        'Access-Control-Allow-Origin': 'https://do-team.github.io'
-                    }
+                    "message" : "hello world!"
                 };
 
-                apigClient.testGet(params, body, additionalParams)
+
+                apigClient.testGet(params, body)
                     .then(function(result){
                     //This is where you would put a success callback
                         console.log('OK!');
@@ -82,13 +71,6 @@
                         console.log('ERR!');
                     //This is where you would put an error callback
                 });
-
-
-
-
-
-
-
             }
             else {
                 FB.login();
