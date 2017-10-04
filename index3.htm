@@ -41,6 +41,11 @@
                     }
                 });
 
+                AWS.config.credentials.get(function(err) {
+                    if (err) console.log(err);
+                    else console.log(AWS.config.credentials);
+                });
+
                 // TEST API CALL!
                 //var apigClient = apigClientFactory.newClient();
 
