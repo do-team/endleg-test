@@ -53,6 +53,8 @@
 
                 console.log(JSON.stringify(AWS.config.credentials));
 
+                console.log(response.authResponse.accessToken);
+
 
                 var params = {
                     //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
