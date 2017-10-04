@@ -45,8 +45,8 @@
                 //var apigClient = apigClientFactory.newClient();
 
                 var apigClient = apigClientFactory.newClient({
-                    //accessKey: 'ACCESS_KEY',
-                    //secretKey: 'SECRET_KEY',
+                    accessKey: AWS.config.credentials.accessKeyId,
+                    secretKey: AWS.config.credentials.secretAccessKey,
                     sessionToken: AWS.config.credentials.sessionToken, //OPTIONAL: If you are using temporary credentials you must include the session token
                     region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
                 });
