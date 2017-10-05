@@ -65,7 +65,7 @@
                             // If there are any unmodeled query parameters or headers that must be
                             //   sent with the request, add them here.
                             headers: {
-                                'Access-Control-Allow-Origin' : 'https://do-team.github.io',
+                                'Access-Control-Allow-Origin': 'https://do-team.github.io',
                                 'Content-Type': 'application/json'
                             }
                         };
@@ -76,9 +76,10 @@
                         apigClient.testPost(params, body, additionalParams)
                             .then(function (result) {
                                 //This is where you would put a success callback
-                                console.log(JSON.stringify(result));
+                                console.log(result.data);
                                 console.log('OK!');
                             }).catch(function (result) {
+                            console.log(result);
                             console.log('ERR!');
                             //This is where you would put an error callback
                         });
