@@ -59,14 +59,20 @@
                         });
                         var params = {
                             //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
-                            'Access-Control-Allow-Origin' : 'https://do-team.github.io'
+                            //'Access-Control-Allow-Origin' : 'https://do-team.github.io'
                         };
-
+                        var additionalParams = {
+                            // If there are any unmodeled query parameters or headers that must be
+                            //   sent with the request, add them here.
+                            headers: {
+                                'Access-Control-Allow-Origin' : 'https://do-team.github.io'
+                            }
+                        };
                         var body = {
                             //This is where you define the body of the request
                             'message': 'hello world!'
                         };
-                        apigClient.testGet(params, body)
+                        apigClient.testGet(params, body, additionalParams)
                             .then(function (result) {
                                 //This is where you would put a success callback
                                 console.log(result);
