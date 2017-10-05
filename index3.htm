@@ -76,11 +76,10 @@
                         apigClient.testGet(params, body, additionalParams)
                             .then(function (result) {
                                 //This is where you would put a success callback
-                                console.log(result);
+                                console.log(JSON.stringify(result));
                                 console.log('OK!');
                             }).catch(function (result) {
                             console.log('ERR!');
-                            console.log(result);
                             //This is where you would put an error callback
                         });
 
