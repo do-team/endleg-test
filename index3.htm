@@ -73,7 +73,7 @@
                             //This is where you define the body of the request
                             'message': 'hello world!'
                         };
-                        apigClient.testGet(params, body, additionalParams)
+                        apigClient.testPost(params, body, additionalParams)
                             .then(function (result) {
                                 //This is where you would put a success callback
                                 console.log(JSON.stringify(result));
