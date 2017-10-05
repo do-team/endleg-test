@@ -20,15 +20,15 @@
 
 <script>
 
-    window.fbAsyncInit = function () {
+    window.fbAsyncInit = function() {
         FB.init({
-            appId: '1461621213908119',
-            xfbml: true,
-            version: 'v2.9'
+            appId      : '1461621213908119',
+            xfbml      : true,
+            version    : 'v2.9'
         });
         FB.AppEvents.logPageView();
         console.log(JSON.stringify(FB));
-        FB.getLoginStatus(function (response) {
+        FB.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 console.log('Logged in.'); // This works!
 
@@ -43,58 +43,52 @@
                     }
                 });
 
-                AWS.config.credentials.get(function (err) {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-
-                        console.log(JSON.stringify(AWS.config.credentials));
-                        console.log(AWS.config.credentials);
-                        // TEST API CALL!
-                        //var apigClient = apigClientFactory.newClient();
-
-                        var apigClient = apigClientFactory.newClient({
-                            accessKey: AWS.config.credentials.accessKeyId,
-                            secretKey: AWS.config.credentials.secretAccessKey,
-                            sessionToken: AWS.config.credentials.sessionToken, //OPTIONAL: If you are using temporary credentials you must include the session token
-                            region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
-                        });
-                        console.log('HERE');
-
-
-                        //console.log(response.authResponse.accessToken);
-
-
-                        var params = {
-                            //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
-                            headers: {
-                                'Access-Control-Allow-Origin': 'https://do-team.github.io',
-                                //'Access-Control-Request-Method': 'GET',
-                                'ContentType': 'Application/JSON'
-                            }
-                        };
-
-                        var body = {
-                            //This is where you define the body of the request
-                            'message': 'hello world!'
-                        };
-
-
-                        apigClient.testGet(params, body)
-                            .then(function (result) {
-                                //This is where you would put a success callback
-                                console.log('OK!');
-                            }).catch(function (result) {
-                            console.log('ERR!');
-                            console.log(JSON.stringify(result));
-                            //This is where you would put an error callback
-                        });
-
-                    }
+                AWS.config.credentials.get(function(err) {
+                    if (err) console.log(err);
+                    else console.log(AWS.config.credentials);
                 });
 
+                // TEST API CALL!
+                //var apigClient = apigClientFactory.newClient();
 
+                var apigClient = apigClientFactory.newClient({
+                    accessKey: AWS.config.credentials.accessKeyId,
+                    secretKey: AWS.config.credentials.secretAccessKey,
+                    sessionToken: AWS.config.credentials.sessionToken, //OPTIONAL: If you are using temporary credentials you must include the session token
+                    region: 'eu-central-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
+                });
+                console.log('HERE');
+                console.log(AWS.config.credentials.accessKeyId);
+                console.log(AWS.config.credentials.secretAccessKey);
+                console.log(AWS.config.credentials.sessionToken);
+
+                //console.log(response.authResponse.accessToken);
+
+
+                var params = {
+                    //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
+                    headers: {
+                        'Access-Control-Allow-Origin': 'https://do-team.github.io',
+                        //'Access-Control-Request-Method': 'GET',
+                        'ContentType' : 'Application/JSON'
+                    }
+                };
+
+                var body = {
+                //This is where you define the body of the request
+                    'message' : 'hello world!'
+                };
+
+
+                apigClient.testGet(params, body)
+                    .then(function(result){
+                    //This is where you would put a success callback
+                        console.log('OK!');
+                    }).catch( function(result){
+                        console.log('ERR!');
+                        console.log(JSON.stringify(result));
+                    //This is where you would put an error callback
+                });
             }
             else {
                 FB.login();
@@ -102,21 +96,23 @@
         });
     };
 
-    (function (d, s, id) {
+    (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
 
+
+
+
+
 </script>
 
 <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+
 
 
 </body>
