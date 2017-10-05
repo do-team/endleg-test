@@ -159,7 +159,7 @@ apigClientFactory.newClient = function (config) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
-        
+        console.log(params);
         var testGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/test').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
