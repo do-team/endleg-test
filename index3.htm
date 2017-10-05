@@ -59,9 +59,12 @@
                         });
                         var params = {
                             //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
-                            'Access-Control-Allow-Origin': 'https://do-team.github.io',
-                            //'Access-Control-Request-Method': 'GET',
-                            'ContentType': 'Application/JSON'
+                            headers {
+                                'Access-Control-Allow-Origin': 'https://do-team.github.io',
+
+                                //'Access-Control-Request-Method': 'GET',
+                                'ContentType': 'Application/JSON'
+                            }
                         };
 
                         var body = {
